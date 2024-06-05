@@ -57,6 +57,21 @@ def ASA(m,u,T):
     """
     return erlangC(m, u) * (T/(m-u))
 
+def getTrafficIntensity(calls,interval,T):
+    """
+    Returns the traffic intensity
+    
+    Parameters:
+        calls       (int): number of call
+        interval    (int): time interval in secs (i.e. 1800s == 30m)
+        T         (float): average call time
+    """
+
+    landa = calls/interval
+    u = landa*T      # traffic intensity
+
+    return u
+    
 def agentsNeeded(u,T,targetSLA,target):
     """
     Returns the number of agents needed to reach given SLA
